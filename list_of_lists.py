@@ -1,24 +1,25 @@
 height = 3
+table = [ [0, 0, 0, 0] for row in range(height)]
+print(table) # [ [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0] ]
+
 width = 4
-board = [ [(x, y) for x in range(width)] for y in range(height)]
-print(board)  # [  [(0, 0), (1, 0), (2, 0), (3, 0)],
-              #    [(0, 1), (1, 1), (2, 1), (3, 1)],
-              #    [(0, 2), (1, 2), (2, 2), (3, 2)]   ]
+table = [ [0 for column in range(width)] for row in range(height)]
 
-def print_board(board):
-    for line in board:
-        for element in line:
-            print(element, ' ', end='')
-        print()  # prints new-line
+table[0][1] = 99
+table[1][2] = 77
+print(table[1][2]) # 77
+print(table) # [ [0, 99, 0, 0], [0, 0, 77, 0], [0, 0, 0, 0] ]
 
-print_board(board)
-# (0, 0)  (1, 0)  (2, 0)  (3, 0)
-# (0, 1)  (1, 1)  (2, 1)  (3, 1)
-# (0, 2)  (1, 2)  (2, 2)  (3, 2)
+def print_table(table):
+    for row in table:
+        for cell in row:
+            print(cell, ' ', end='')
+        print() # prints new-line
+            
+print_table(table)
+#  0 99  0  0  
+#  0  0 77  0  
+#  0  0  0  0 
 
-board[0][0] = 'XXXXXX'
-board[1][3] = '******'
-print_board(board)
-# XXXXXX  (1, 0)  (2, 0)  (3, 0)
-# (0, 1)  (1, 1)  (2, 1)  ******
-# (0, 2)  (1, 2)  (2, 2)  (3, 2)
+print("table height:", len(table) )   # 3
+print("table width:", len(table[0]) ) # 4
