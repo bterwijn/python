@@ -9,6 +9,7 @@ def main():
 
 def make_container(n):
     return set(random_item(n) for i in range(n))  # set
+    #         [random_item(n) for i in range(n)]  # list
 
 def random_item(n):
     return random.randrange(0, n)
