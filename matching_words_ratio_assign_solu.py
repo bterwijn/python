@@ -25,7 +25,7 @@ def print_help():
           "with the count of all unique words in 'filename1' and 'filename2' in total.")
 
 def clean_up_text(text):
-    """ Returns 'text' after convertion to lower case and replacing all non-letters with a whitespace. """
+    """ Returns 'text' after conversion to lower case and replacing all non-letters with a whitespace. """
     text = text.lower()  # to lower case
     text = re.sub(r'[^a-z]', ' ', text)  # replace other characters than a-z with ' '
     return text

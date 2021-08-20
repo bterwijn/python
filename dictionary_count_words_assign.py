@@ -2,15 +2,15 @@ import sys
 import re
 
 def main():
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 2:
         print_help()
         sys.exit(1)
 
 def print_help():
     """ Prints usage information """
-    print("usage: python", sys.argv[0], "<filename1> <filename2>")
-    print("Prints the ratio of the count of all unique words 'filename1' and 'filename2' have in common",
-          "with the count of all unique words in 'filename1' and 'filename2' in total.")
+    print("usage: python", sys.argv[0], "<filename>")
+    print("Print the top 20 of most occuring words in 'filename' together with their count.",
+          "The words are sorted by their count from high to low.")
 
 def clean_up_text(text):
     """ Returns 'text' after conversion to lower case and replacing all non-letters with a whitespace. """
