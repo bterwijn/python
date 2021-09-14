@@ -1,23 +1,33 @@
 
 def main():
-    persons = Persons()
-    persons.add_person(Person("James", "Taylor", 70.5, 1.71, Date(5, 1, 1994)))
-    persons.add_person(Person("Emma", "Williams", 65.0, 1.69, Date(16, 11, 1989)))
-    persons.add_person(Person("Jack",  "Smith",  67.0, 1.65, Date(23, 4, 2001)))
-    print( persons.get_persons_by_height(1.60,1.70) )
+    menu = Menu()
+    persons = menu.create_persons()
+    menu.print_persons_by_height(persons)
+
+class Menu:
+
+    def __init__(self):
+        pass
+
+    def create_persons(self):
+        persons = Persons()
+        persons.add_person(Person("James", "Taylor", 70.5, 1.71, Date(5, 1, 1994)))
+        persons.add_person(Person("Emma", "Williams", 65.0, 1.69, Date(16, 11, 1989)))
+        persons.add_person(Person("Jack", "Smith", 67.0, 1.65, Date(23, 4, 2001)))
+        return persons
+
+    def print_persons_by_height(self, persons):
+        step = 10
+        for height in range(150, 190, step):
+            min_height = height / 100
+            max_height = (height + step) / 100
+            print("height:", min_height, "-", max_height)
+            print(persons.get_persons_by_height(min_height, max_height))
 
 class Persons:
 
     def __init__(self):
-        self._persons = []  # non-public (private/protected) member variable
-                            # Abstraction: the concept of object-oriented programming that “shows” only essential 
-                            #              attributes and “hides” unnecessary information. (guru99)
-                            # Information hiding: segregation of the design decisions that are most likely to change, 
-                            #                     thus protecting other parts of the program from extensive 
-                            #                     modification if the decision is changed (wikipedia)
-                            # Encapsulation: hide the values or state of an object, preventing direct access to them
-                            #                by clients in a way that could expose hidden implementation details or 
-                            #                violate state invariance (wikipedia)
+        self._persons = []
 
     def __repr__(self):
         return f"{self._persons}"
@@ -28,7 +38,7 @@ class Persons:
     def get_persons_by_height(self, min_height, max_height):
         result = Persons()
         for person in self._persons:
-            if person.height >= min_height and person.height <= max_height:
+            if person.height >= min_height and person.height < max_height:
                 result.add_person(person)
         return result
 
@@ -80,8 +90,8 @@ class Date:
         return result
 
     def set_year(self, year):
-    	self._year = year
-    	self.check_valid()
+        self._year = year
+        self.check_valid()
 
 # from get_valid_date_assign_solu.py
 def is_valid_month(month):
@@ -112,5 +122,6 @@ def is_leap_year(year):
         if year % 100 == 0 and year % 400 != 0:  # except when it is devisible by 100 and not
             leap_year = False                    # devisible by 400
     return leap_year
+
 
 main()

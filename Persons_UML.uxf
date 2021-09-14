@@ -1,0 +1,42 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>33</x><y>41</y><w>380</w><h>90</h></coordinates><panel_attributes>Persons
+--
+--
+__init__(self)
+add_person(self, person)
+get_persons_by_height(self, min_height, max_height) : Persons
+
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>43</x><y>231</y><w>360</w><h>160</h></coordinates><panel_attributes>Person
+--
+name : str
+surname : str
+weight : float
+height : float
+--
+__init__(self, first_name, last_name, weight, height, birth_date)
+get_name(self) : str
+get_body_mass_index(self) : float
+get_age(self, current_date) : int
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>543</x><y>231</y><w>190</w><h>140</h></coordinates><panel_attributes>Date
+--
+_day : int
+_month : int
+_year : int
+--
+__init__(self, day, month, year)
+check_valid(self)
+year_difference(self, other) : int
+set_year(self, year)
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>203</x><y>121</y><w>150</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+_persons : list&lt;Person&gt;
+0..*
+</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>393</x><y>271</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+birth_date
+</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>503</x><y>51</y><w>280</w><h>80</h></coordinates><panel_attributes>Menu
+--
+--
+create_persons(self) : Persons
+print_persons_by_height(self, persons)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>403</x><y>90</y><w>120</w><h>30</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;100;10</additional_attributes></element></diagram>
