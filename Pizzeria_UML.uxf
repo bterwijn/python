@@ -1,56 +1,57 @@
-<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>55</x><y>60</y><w>170</w><h>110</h></coordinates><panel_attributes>Pizzeria
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>65</x><y>20</y><w>170</w><h>130</h></coordinates><panel_attributes>Pizzeria
 --
-turnover : float
+_turnover : float
 --
 __init__(self)
+get_turnover(self) : float
 get_menu(self) : Menu
 add_new_order(self, order)
 prepare_next_order(self)
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>365</x><y>50</y><w>240</w><h>130</h></coordinates><panel_attributes>Menu
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>375</x><y>40</y><w>240</w><h>130</h></coordinates><panel_attributes>Menu
 --
 --
 __init__(self)
 add_pizza_base(self, pizza_base)
 get_pizza_bases(self) : list&lt;Pizza_Base&gt;
 add_topping(self, topping)
-get_toppings(self) : list&lt;Topping&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>295</x><y>250</y><w>200</w><h>90</h></coordinates><panel_attributes>Pizza_Base
+get_toppings(self) : list&lt;Topping&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>305</x><y>240</y><w>200</w><h>90</h></coordinates><panel_attributes>Pizza_Base
 --
 size : str
 cost : float
 --
-__init__(self, size, cost)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>525</x><y>250</y><w>200</w><h>90</h></coordinates><panel_attributes>Topping
+__init__(self, size, cost)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>535</x><y>240</y><w>200</w><h>90</h></coordinates><panel_attributes>Topping
 --
 name : str
 cost : float
 --
-__init__(self, name, cost)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>45</x><y>230</y><w>200</w><h>90</h></coordinates><panel_attributes>Order_Queue
+__init__(self, name, cost)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>55</x><y>220</y><w>200</w><h>90</h></coordinates><panel_attributes>Order_Queue
 --
 --
 __init__(self)
 add_to_back(self, order)
 remove_from_front(self) : Order
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>45</x><y>390</y><w>200</w><h>110</h></coordinates><panel_attributes>Order
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>55</x><y>380</y><w>200</w><h>110</h></coordinates><panel_attributes>Order
 --
 --
 __init__(self)
 add_pizza(self, pizza)
 get_pizzas(self)  : list&lt;Pizza&gt;
-get_total_cost(self) : float</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>385</x><y>410</y><w>260</w><h>90</h></coordinates><panel_attributes>Pizza
+get_total_cost(self) : float</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>425</x><y>400</y><w>180</w><h>90</h></coordinates><panel_attributes>Pizza
 --
 --
 __init__(self, pizza_base)
-add_ingredient(self, ingredient)
-get_total_cost(self) : float</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>125</x><y>310</y><w>90</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+add_topping(self, topping)
+get_total_cost(self) : float</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>135</x><y>300</y><w>90</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
 _orders : list
-0..*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>235</x><y>430</y><w>170</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+0..*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>245</x><y>420</y><w>200</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
 _pizzas : list
-0..*</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>215</x><y>100</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
-_menu</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>135</x><y>160</y><w>100</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
-_order_queue</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>435</x><y>170</y><w>130</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+0..*</panel_attributes><additional_attributes>10;20;180;20</additional_attributes></element><element><id>Relation</id><coordinates><x>225</x><y>60</y><w>170</w><h>40</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+_menu</panel_attributes><additional_attributes>10;20;150;20</additional_attributes></element><element><id>Relation</id><coordinates><x>145</x><y>140</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+_order_queue</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>445</x><y>160</y><w>130</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
 _pizza_bases : list
-0..*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>565</x><y>170</y><w>100</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
-_topping : list
-0..*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>435</x><y>330</y><w>90</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
-pizza_base</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>545</x><y>330</y><w>90</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+0..*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>575</x><y>160</y><w>110</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+_toppings : list
+0..*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>445</x><y>320</y><w>90</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+pizza_base</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>555</x><y>320</y><w>90</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
 topping : list
 0..*</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element></diagram>

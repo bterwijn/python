@@ -21,7 +21,7 @@ def create_random_order(menu):
     for p in range(nr_pizzas):
         pizza_bases = menu.get_pizza_bases()
         pizza = Pizza(random.sample(pizza_bases, 1)[0])
-        for i in range(nr_toppings):
+        for t in range(nr_toppings):
             toppings = menu.get_toppings()
             pizza.add_topping(random.sample(toppings, 1)[0])
         order.add_pizza(pizza)
