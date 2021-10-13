@@ -14,6 +14,10 @@ def get_pass_students(students,grades,pass_grade):
     grades      -- the correnspondeing list of grades
     pass_grade  -- the passing grade
     """
-    pass # add your code here
+    pass_students=[]
+    for index,grade in enumerate(grades):
+        if grade >= pass_grade:
+            pass_students.append(students[index])
+    return pass_students
 
 main()
