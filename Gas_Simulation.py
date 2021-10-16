@@ -74,7 +74,8 @@ class Molecules:
     def draw(self, surface):
         """ Draws all Molecules to the 'surface' """
         for molecule in self.molecules:
-            
+            molecule.draw(surface)
+
 class Molecule:
     """ A Molecule within the gas """
     radius = 8
