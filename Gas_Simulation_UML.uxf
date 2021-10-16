@@ -1,0 +1,31 @@
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>190</x><y>30</y><w>150</w><h>90</h></coordinates><panel_attributes>Gas_Simulation
+--
+surface : Surface
+--
+__init__(self)
+run(self)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>110</y><w>80</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+molecules</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>190</y><w>320</w><h>110</h></coordinates><panel_attributes>Molecules
+--
+--
+__init__(self, nr_molecules, surface_size)
+try_add_molecule(self, tries, surface_size)
+move(self, surface_size)
+is_in_collision_with_other_molecule(self, molecule) : molecule
+draw(surface)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>110</x><y>370</y><w>370</w><h>220</h></coordinates><panel_attributes>Molecule
+--
+position : Vector2
+speed : Vector2
+_radius_ : int
+--
+__init__(self, surface_size)
+move(self)
+get_position(self) : Vector2
+set_position(self, position)
+handle_collide_with_borders(self, surface_size) : bool
+handle_collision_with_molecule(self, molecule)
+is_in_collision(self, molecule)
+draw(self, surface)
+get_grid_coordinate(self)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>290</y><w>170</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+molecules : list&lt;Molecule&gt;
+0..*</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element></diagram>
