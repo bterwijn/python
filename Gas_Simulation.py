@@ -49,6 +49,15 @@ class Molecules:
                 self.molecules.append(molecule)
                 break
 
+    def is_in_collision_with_other_molecule(self, molecule):
+        """ Checks if 'molecule' is in collision with an other molecule.
+        Return the molecule it is in collision with or return 'None'
+        if no collision """
+        for m in self.molecules:
+            if molecule.is_in_collision(m):
+                return m
+        return None
+
     def move(self, surface_size):
         """ Moves each molecule in the container thereby handeling collisions with the
             border and other molecules """
@@ -60,16 +69,7 @@ class Molecules:
             collision_molecule = self.is_in_collision_with_other_molecule(molecule)
             if not collision_molecule is None:  # if it has a collision with a molecule
                 molecule.handle_collision_with_molecule(collision_molecule)  # handle the collision
-                molecule.set_position(old_position)  # restore old position
-
-    def is_in_collision_with_other_molecule(self, molecule):
-        """ Checks if 'molecule' is in collision with an other molecule.
-        Return the molecule it is in collision with or return 'None'
-        if no collision """
-        for m in self.molecules:
-            if molecule.is_in_collision(m):
-                return m
-        return None
+                molecule.set_position(old_position)  # restore old position            
 
     def draw(self, surface):
         """ Draws all Molecules to the 'surface' """
