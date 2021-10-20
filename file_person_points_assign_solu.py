@@ -60,7 +60,7 @@ def add_points(filename, name, points):
     person_points_list = read_file(filename)
     found = False
     for person_points in person_points_list:
-        if name == person_points[0]:
+        if len(person_points)>0 and name == person_points[0]:
             person_points.append(points)
             found = True
     if not found:
@@ -72,7 +72,7 @@ def remove_last_points(filename, name):
     person_points_list = read_file(filename)
     found = False
     for person_points in person_points_list:
-        if name == person_points[0] and len(person_points) > 1:
+        if len(person_points)>0 and name == person_points[0] and len(person_points) > 1:
             person_points.pop()
             found = True
     if not found:
