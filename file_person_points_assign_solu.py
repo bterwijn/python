@@ -60,7 +60,7 @@ def add_points(filename, name, points):
     person_points_list = read_file(filename)
     found = False
     for person_points in person_points_list:
-        if name == person_points[0]:
+        if len(person_points)>0 and name == person_points[0]:
             person_points.append(points)
             found = True
     if not found:
@@ -72,7 +72,7 @@ def remove_last_points(filename, name):
     person_points_list = read_file(filename)
     found = False
     for person_points in person_points_list:
-        if name == person_points[0] and len(person_points) > 1:
+        if len(person_points)>0 and name == person_points[0] and len(person_points) > 1:
             person_points.pop()
             found = True
     if not found:
@@ -97,7 +97,7 @@ def read_file(filename):
      that is followed by the points of that person """
     person_points_list = []
     try:
-        with open(filename, 'r') as file:
+        with open(filename, 'r', newline='') as file: # newline='' required on Windows to avoid empty lines
             csv_reader = csv.reader(file)
             for row in csv_reader:
                 person_points_list.append(row)
@@ -109,12 +109,11 @@ def write_file(filename, person_points_list):
     """ Writes a list of list (where each list begins with a name
      that is followed by the points) to file 'filename' """
     try:
-        with open(filename, 'w') as file:
+        with open(filename, 'w', newline='') as file: # newline='' required on Windows to avoid empty lines
             csv_writer = csv.writer(file)
             csv_writer.writerows(person_points_list)
     except FileNotFoundError:
         print(f"ERROR: Couldn't write to file '{filename}'.")
         sys.exit(1)
-
 
 main()
