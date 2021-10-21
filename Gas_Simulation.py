@@ -132,7 +132,7 @@ class Molecule:
 
     def get_grid_coordinate(self):
         """ Returns the grid coordinate of the molecule as a tuple  """
-        return (int(self.position[0] // (2 * Molecule.radius)),
-                int(self.position[1] // (2 * Molecule.radius)))
+        return (int(self.position.x // (2 * Molecule.radius)),
+                int(self.position.y // (2 * Molecule.radius)))
 
 main()
